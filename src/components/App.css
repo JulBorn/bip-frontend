@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    color: #747474;
+    font-size: 25px;
+}
+
+h1{
+    color: #6A78F9;
+    margin-bottom: 0;
+}
+
+.container{
+    display: flex;
+}
+
+.app{
+    min-height: 100vh;
+    min-width: calc(100% - 41%);
+}
+
+.logo{
+    background-color: #E5F2FE;
+    min-height: 100vh;
+    min-width: 41%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.logo__des{
+    height: 30vh;
+    padding-top: 15%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.glitch__logo{
+    width: 50%;
+}
+

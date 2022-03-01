@@ -1,0 +1,61 @@
+h2{
+    color: #6A78F9;
+    margin-bottom: 0;
+}
+
+p{
+    min-width: 100%;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.authorization__header, .fa__header{
+    min-width: 100%;
+    font-size: 20px;
+    text-align: left;
+    margin: 5px;
+}
+
+.container__auth{
+    height: calc(100vh - 7vh);
+    width: 56%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.authorization, .fa{
+    display: flex;
+    min-height: 100%;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.authorization__div__btn{
+    width: 100%;
+}
+
+.authorization__btn, .fa__btn{
+    color: #ffffff;
+    background-color: #6A78F9;
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    border: #6A78F9 2px solid;
+    border-radius: 25px;
+    padding: 10px 15%;
+    align-items: center;
+    justify-content: left;
+}
+
+.authorization__btn:hover,
+.authorization__btn:focus,
+.authorization__btn:active,
+.fa__btn:hover,
+.fa__btn:focus,
+.fa__btn:active{
+    background-color: white;
+    color: #747474;
+    cursor: pointer;
+}
