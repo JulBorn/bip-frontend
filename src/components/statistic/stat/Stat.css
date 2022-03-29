@@ -1,0 +1,51 @@
+.grid{
+    width: 90%;
+    display: flex;
+    flex-flow: row;
+    max-height: calc(100% - 45% - 50px - 50px);
+    min-height: calc(100% - 55% - 50px - 50px - 3%);
+    margin: 1% 4%;
+    margin-top: 2%;
+}
+
+.grid a{
+    display: flex;
+    flex-flow: column;
+    min-width: calc(25% - 30px);
+    width: calc(25% - 30px);
+    border: 0;
+    padding: 5px;
+    background-color: white;
+}
+
+.grid a ul{
+    padding-left: 25px;
+    font-size: 1.2rem;
+}
+
+.grid a:hover,
+.grid a:focus,
+.grid a:active {
+    margin: 0;
+    min-width: calc(25% - 30px);
+    width: calc(25% - 30px);
+    padding: 15px;
+}
+.card h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: black;
+    text-align: center;
+}
+
+.card p {
+    margin: 0;
+    font-size: 20px;
+    color: #888888;
+    border: #6A78F9;
+}
+.numCard{
+    font-size: 2.5rem;
+    color: #000000;
+    font-weight: bold;
+}

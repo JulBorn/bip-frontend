@@ -67,14 +67,16 @@ export const auth =  () => {
         }
     }
 }
+
 export const fa =  (login,password,token) => {
     return async dispatch => {
         try {
             const response = await axios.post('https://api-glitchspeech.herokuapp.com/users/login', {
                 "login":login,"password":password,"two_fa_token":token
             })
-            dispatch(setUser(response.data.username))
-            alert(response.data.jwtToken)
+            dispatch(setUser(login))
+            alert("username")
+            alert(login)
             localStorage.setItem('token', response.data.jwtToken)
             alert('ok')
             const self = await axios.get('https://api-glitchspeech.herokuapp.com/users/self',

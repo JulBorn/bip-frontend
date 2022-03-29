@@ -1,0 +1,51 @@
+.filelist__all{
+    height: 90%;
+    min-height: 90%;
+    display: flex;
+    flex-flow: row;
+    min-width: 90%;
+    padding:  0 5%;
+
+}
+.filelist__headerstat{
+    display: flex;
+    flex-flow: row;
+    justify-content: left;
+    align-items: end;
+    margin-left: 5%;
+}
+.filelist{
+    min-height: 45%;
+    height: 45%;
+    min-width: 100%;
+}
+
+.filelist__name{
+    margin-left: 20px;
+    font-size: 30px;
+}
+
+.filelist__date{
+    display: flex;
+    flex-flow: row;
+    margin-right: 5%;
+}
+
+.filelist__header{
+    min-height: 10%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.filelist__date__center{
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+
+.filelist__date__left, .filelist__date__right{
+    background-color: inherit;
+    border: 0;
+}
+
