@@ -27,7 +27,7 @@ h1{
     justify-content: center;
     flex-flow: column;
     text-align: center;
-    margin-top: auto;
+    margin-top: 0;
     margin-bottom: auto;
 }
 
@@ -42,5 +42,11 @@ h1{
 
 .glitch__logo{
     width: 50%;
+}
+
+.wrap{
+    min-height: 90%;
+    display: flex;
+    align-items: center;
 }
 
