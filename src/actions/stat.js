@@ -4,23 +4,27 @@ import jwt_decode from "jwt-decode";
 import getBrowserFingerprint from "get-browser-fingerprint";
 import {beginLoad, endLoad, inLoad, closeLoad} from "../reducers/loadReducer";
 
+export function exp_token(){
+    let token = localStorage.getItem('token');
+    let decodedToken = jwt_decode(token);
+    console.log("Decoded Token", decodedToken);
+    let currentDate = new Date();
+
+    // JWT exp is in seconds
+    if (decodedToken.exp * 1000 < currentDate.getTime()) {
+        console.log("Token expired.");
+        const fingerprint = getBrowserFingerprint();
+        const refresh = axios.post('https://api-glitchspeech.herokuapp.com/users/refresh', {
+            "fingerprint":fingerprint},{ withCredentials: true
+        })
+        localStorage.setItem('token', refresh.data.jwtToken);
+    }
+}
+
 export function getFiles() {
     return async dispatch => {
         try {
-            let token = localStorage.getItem('token');
-            let decodedToken = jwt_decode(token);
-            console.log("Decoded Token", decodedToken);
-            let currentDate = new Date();
-
-            // JWT exp is in seconds
-            if (decodedToken.exp * 1000 < currentDate.getTime()) {
-                console.log("Token expired.");
-                const fingerprint = getBrowserFingerprint();
-                const refresh = await axios.post('https://api-glitchspeech.herokuapp.com/users/refresh', {
-                    "fingerprint":fingerprint},{ withCredentials: true
-                })
-                localStorage.setItem('token', response.data.jwtToken);
-            }
+            exp_token();
             const response = await axios.get('https://api-glitchspeech.herokuapp.com/users/self/audios?date=latest', {
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
             })
@@ -41,6 +45,7 @@ export function getFiles() {
 export function getNewFiles(date) {
     return async dispatch => {
         try {
+            exp_token();
             const response = await axios.get('https://api-glitchspeech.herokuapp.com/users/self/audios?date='+date, {
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
             })
@@ -58,6 +63,7 @@ export function getNewFiles(date) {
 export function uploadFile(file, dirId) {
     return async dispatch => {
         try {
+            exp_token();
             const formData = new FormData()
             formData.append('file', file)
             if (dirId) {
@@ -109,6 +115,7 @@ export function uploadFile(file, dirId) {
 export function checkFile(id) {
     return async dispatch => {
         try {
+            exp_token();
             //alert('https://api-glitchspeech.herokuapp.com/audio_queue/'+id)
             const response = await axios.get('https://api-glitchspeech.herokuapp.com/audio_queue/'+id, {
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},

@@ -78,8 +78,8 @@ export const fa =  (login,password,token) => {
             const fingerprint = getBrowserFingerprint();
             const response = await axios.post('https://api-glitchspeech.herokuapp.com/users/login', {
                 "login":login,"password":password,"two_fa_token":token, "fingerprint":fingerprint},
-                {withCredentials: true
-            })
+                {withCredentials: true}
+            )
             dispatch(setUser(login))
             //alert("username")
             //alert(login)
