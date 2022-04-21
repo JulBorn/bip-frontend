@@ -1,10 +1,26 @@
 import axios from 'axios'
 import {setFiles} from "../reducers/fileReducer";
+import jwt_decode from "jwt-decode";
+import getBrowserFingerprint from "get-browser-fingerprint";
 import {beginLoad, endLoad, inLoad, closeLoad} from "../reducers/loadReducer";
 
 export function getFiles() {
     return async dispatch => {
         try {
+            let token = localStorage.getItem('token');
+            let decodedToken = jwt_decode(token);
+            console.log("Decoded Token", decodedToken);
+            let currentDate = new Date();
+
+            // JWT exp is in seconds
+            if (decodedToken.exp * 1000 < currentDate.getTime()) {
+                console.log("Token expired.");
+                const fingerprint = getBrowserFingerprint();
+                const refresh = await axios.post('https://api-glitchspeech.herokuapp.com/users/refresh', {
+                    "fingerprint":fingerprint},{ withCredentials: true
+                })
+                localStorage.setItem('token', response.data.jwtToken);
+            }
             const response = await axios.get('https://api-glitchspeech.herokuapp.com/users/self/audios?date=latest', {
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
             })

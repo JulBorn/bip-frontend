@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {setUser,createUser} from "../reducers/userReducer";
+import getBrowserFingerprint from "get-browser-fingerprint";
 
 let timer = null;
 
@@ -74,8 +75,10 @@ export const auth =  () => {
 export const fa =  (login,password,token) => {
     return async dispatch => {
         try {
+            const fingerprint = getBrowserFingerprint();
             const response = await axios.post('https://api-glitchspeech.herokuapp.com/users/login', {
-                "login":login,"password":password,"two_fa_token":token
+                "login":login,"password":password,"two_fa_token":token, "fingerprint":fingerprint},
+                {withCredentials: true
             })
             dispatch(setUser(login))
             //alert("username")
