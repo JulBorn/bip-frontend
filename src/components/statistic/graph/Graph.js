@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import Column from "./column/Column";
 import './Graph.css'
 import Statistica from "../../../assets/img/statistica.png";
-import Clock from "./Clock"
 import {getNewFiles} from "../../../actions/stat";
 import ChevronRight from "../../../assets/img/chevron_right.png";
 import ChevronLeft from "../../../assets/img/chevron_left.png";

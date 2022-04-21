@@ -9,6 +9,11 @@ import {useDispatch, useSelector} from "react-redux";
 import Logo from '../assets/img/logo.png'
 import {createUser} from "../reducers/userReducer";
 
+function Auth(){
+    if (localStorage.getItem('token') !== null) alert("token");
+    return <div>jj</div>;
+}
+
 function App() {
     const isAuth = useSelector(state => state.user.isAuth)
     const dispatch = useDispatch()
@@ -16,8 +21,10 @@ function App() {
     return (
 
         <BrowserRouter>
-            {!isAuth ?
+
+            {(!isAuth ) ?
                 <div className={"container"}>
+
                     <div className={"logo"}>
                         <img src={Logo} alt="" className="glitch__logo"/>
                         <div className={"logo__des"}>

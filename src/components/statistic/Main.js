@@ -1,10 +1,12 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getFiles} from "../../actions/stat";
+import {getFiles, checkFile} from "../../actions/stat";
 import Graph from "./graph/Graph";
 import Stat from "./stat/Stat";
 import Load from "./load/Load";
+import Atrebut from "./atrebut/Atrebut";
 import {uploadFile} from "../../actions/stat";
+import {logout} from "../../reducers/userReducer"
 import './Main.css';
 import Person from '../../assets/img/person.png';
 import Upload from "../../assets/img/Upload.png";
@@ -17,12 +19,15 @@ import Statistic from "../../assets/img/sat_main.png";
 import Settings from "../../assets/img/settings.png";
 import Btn from "../../assets/img/Icon_button.png";
 import Btn_cl from "../../assets/img/Icon_close.png";
-import {registration} from "../../actions/user";
+import {login} from "../../actions/user";
 
 const Main = () => {
     const dispatch = useDispatch()
 
+    //const mess = useSelector(state => state.load.type)
+
     useEffect(() => {
+        //dispatch(setUser(localStorage.getItem('user')))
         dispatch(getFiles())
     })
 
@@ -66,7 +71,11 @@ const Main = () => {
 
                         </div>
                         <div>
-                            <img src={Logout} alt=""  className="main__img__bottom"/>
+                            <button className="logout__btn" onClick={() => dispatch(logout())}>
+                                <img src={Logout} alt=""  className="main__img__logout"/>
+                            </button>
+
+
                         </div>
 
                     </div>
@@ -85,23 +94,28 @@ const Main = () => {
                         <div className="main__btns">
 
                             <div className="disk__upload">
-                                <label htmlFor="disk__upload-input" className="disk__upload-label">
-                                    <a className="main__load" >
-                                        <img src={Upload} alt="" className="main__picupload"/>
-                                        <div className="main__upload">
-                                            Загрузка
-                                            <p>Анализ речи</p>
-                                        </div>
-                                        <img src={Arrow} alt="" className="main__arrow"/>
-                                    </a>
-                                </label>
-                                <input multiple={true} onChange={(event)=> fileUploadHandler(event)} type="file" id="disk__upload-input" className="disk__upload-input"/>
-                                <Load/>
+                                <div className="disk__upload__btn">
+                                    <label htmlFor="disk__upload-input" className="disk__upload-label">
+                                        <a className="main__load" >
+                                            <img src={Upload} alt="" className="main__picupload"/>
+                                            <div className="main__upload">
+                                                Загрузка
+                                                <p>Анализ речи</p>
+                                            </div>
+                                            <img src={Arrow} alt="" className="main__arrow"/>
+                                        </a>
+                                    </label>
+                                    <input multiple={true} onChange={(event)=> fileUploadHandler(event)} type="file" id="disk__upload-input" className="disk__upload-input"/>
+                                </div>
+                                <div className="disk__upload__stat">
+                                    <Load/>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="main__art">
-                        <div className="main__name">Артефакты</div>
+                    <div className="main__line"> </div>
+                    <div className="main__atr">
+                        <Atrebut/>
                     </div>
                 </div>
             </div>

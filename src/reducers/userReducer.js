@@ -3,8 +3,12 @@ const CREAT_USER = "CREAT_USER"
 const LOGOUT = "LOGOUT"
 
 const defaultState = {
-    currentUser: {},
-    isAuth: false,
+    currentUser: (localStorage.getItem('token')!=null)
+        ? localStorage.getItem('user')
+        :
+        {}
+    ,
+    isAuth: (localStorage.getItem('token')!=null),
     isCreate: false
 }
 

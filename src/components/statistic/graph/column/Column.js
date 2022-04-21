@@ -16,7 +16,7 @@ const Column =({file})=> {
                 }}
                      onClick={()=>dispatch(updFiles(file.date,
                          file.swearsNum,file.parasitesNum,
-                         file.speechSpeed))}>{file.wordsNum} {maxHeight}</button>
+                         file.speechSpeed, file.fullText))}>{file.wordsNum}</button>
             </div>
             <div className="file__info">
                 <div className="file__date">{file.date.slice(0,10)}</div>

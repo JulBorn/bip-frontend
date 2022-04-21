@@ -1,0 +1,27 @@
+.atr__not__btn{
+    min-width: calc(80% - 10px - 30px - 18%);
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 0px 15px;
+    min-height: 60px;
+    color: black;
+    background-color: white;
+    border: 0px;
+    margin-left: 0;
+    margin-right: 30px;
+}
+
+.atr__text, .atr__is__text{
+    color: #888888;
+    font-size: 1.0rem;
+    margin: 15px 0px;
+}
+
+.atr__name{
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+
+

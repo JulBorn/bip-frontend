@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
+import {setUser} from './reducers/userReducer';
 import {store} from "./reducers";
 import {Provider} from "react-redux";
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+                <App />
     </Provider>,
     document.getElementById('root')
 );

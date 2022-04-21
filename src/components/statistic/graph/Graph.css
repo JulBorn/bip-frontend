@@ -4,7 +4,7 @@
     display: flex;
     flex-flow: row;
     min-width: 90%;
-    padding:  0 5%;
+    padding:  0 3%;
 
 }
 .filelist__headerstat{
@@ -22,13 +22,12 @@
 
 .filelist__name{
     margin-left: 20px;
-    font-size: 30px;
 }
 
 .filelist__date{
     display: flex;
     flex-flow: row;
-    margin-right: 5%;
+    margin-right: 2%;
 }
 
 .filelist__header{
@@ -41,7 +40,7 @@
 .filelist__date__center{
     display: flex;
     align-items: center;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .filelist__date__left, .filelist__date__right{
