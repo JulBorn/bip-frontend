@@ -54,6 +54,9 @@ export const login =  (log, password) => {
 export const auth =  () => {
     return async dispatch => {
         try {
+            if (localStorage.getItem('token')!=null){
+
+            }
             const response = await axios.get(`http://localhost:5000/api/auth/auth`,
                 {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}}
             )
@@ -75,10 +78,11 @@ export const fa =  (login,password,token) => {
                 "login":login,"password":password,"two_fa_token":token
             })
             dispatch(setUser(login))
-            alert("username")
-            alert(login)
+            //alert("username")
+            //alert(login)
             localStorage.setItem('token', response.data.jwtToken)
-            alert('ok')
+            localStorage.setItem('user', login)
+            //alert('ok')
             const self = await axios.get('https://api-glitchspeech.herokuapp.com/users/self',
                 {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`},responseType: 'text'}
             )

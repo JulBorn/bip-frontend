@@ -2,6 +2,7 @@ const SET_FILES = "SET_FILES"
 const UPD_FILES = "UPD_FILES"
 
 const defaultState = {
+    type:false,
     files: [],
     oldDate: [],
     newDate: [],
@@ -9,7 +10,8 @@ const defaultState = {
     info: [],
     parasit: [],
     swear: [],
-    speed: []
+    speed: [],
+    text: []
 }
 
 export default function fileReducer(state = defaultState, action) {
@@ -17,6 +19,7 @@ export default function fileReducer(state = defaultState, action) {
         case SET_FILES:
             return {
                 ...state,
+                type: false,
                 files: action.payload,
                 oldDate: action.oldDate,
                 newDate: action.newDate,
@@ -29,17 +32,19 @@ export default function fileReducer(state = defaultState, action) {
         case UPD_FILES:
             return {
                 ...state,
+                type: true,
                 date: action.date,
                 parasit: action.parasit,
                 swear: action.swear,
-                speed: action.speed
+                speed: action.speed,
+                text: action.text
             }
         default:
             return state
     }
 }
 
-export const setFiles = (files, odat, dat, ndat, inf, swe, par, spe) => ({
+export const setFiles = (files, odat, dat, ndat, inf, swe, par, spe, tex) => ({
     type: SET_FILES,
     oldDate: odat,
     date: dat,
@@ -48,12 +53,14 @@ export const setFiles = (files, odat, dat, ndat, inf, swe, par, spe) => ({
     info:inf,
     swear:swe,
     parasit:par,
-    speed: spe
+    speed: spe,
+    text: tex
 })
-export const updFiles = (dat, swe, par, spe) => ({
+export const updFiles = (dat, swe, par, spe, tex) => ({
     type: UPD_FILES,
     date: dat,
     swear:swe,
     parasit:par,
-    speed: spe
+    speed: spe,
+    text: tex
 })

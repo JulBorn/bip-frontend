@@ -13,9 +13,23 @@
 }
 
 .main__stat{
-    min-width: 80%;
-    max-width: 80%;
+    min-width: calc(76% - 1px);
+    max-width: calc(76% - 1px);
     min-height: 100%;
+}
+
+.main__atr{
+    min-width: calc(100% - 76% - 1px - 2.5%);
+    max-width: calc(100% - 76% - 1px - 2.5%);
+    padding: 0 0.5% 0 2%;
+}
+
+.main__line{
+    min-width: 1px;
+    max-width: 1px;
+    min-height: calc(100% - 20px);
+    margin: 10px 0;
+    background-color: #B2B2B2;
 }
 
 .main__toolbar{
@@ -29,6 +43,7 @@
 }
 
 .main__person{
+
     margin: 20px;
 }
 
@@ -36,22 +51,22 @@
     display: flex;
     flex-flow: row;
     background-color: white;
-    border: 0;
     margin: 0;
-    margin-left: 5%;
-    width: 20%;
+    margin-left: 20%;
+    width: calc(100% - 2px);
     padding: 10px;
     min-height: 5%;
     justify-content: left;
+    border: 1px white solid;
 }
 
 .main__load:hover,
 .main__load:focus,
 .main__load:active {
-    width: calc(20% - 2px);
+    width: calc(100% - 2px);
     background-color: white;
     border: 1px #6A78F9 solid;
-    max-height: 5%;
+    max-height: 100%;
 }
 
 .main__picupload{
@@ -134,13 +149,14 @@
 
 .dropdown-content {
     display: none;
-    min-height: calc(100% - 20px);
+    min-height: calc(100% - 14px);
     position: absolute;
     top: 0;
     left: 0;
     background-color: white;
     min-width: calc(150px - 20px);
     padding: 10px;
+    padding-bottom: 4px;
     z-index: 1;
 }
 .dropdown__inside{
@@ -171,6 +187,21 @@
     margin-bottom: 8px;
 }
 
+.logout__btn{
+    background-color: white;
+    border: 0;
+    width: 26%;
+    margin-left: 3px;
+    padding: 0;
+}
+
+.logout__btn:hover{
+    cursor: pointer;
+}
+
+.main__img__logout{
+}
+
 .dropdown:hover {background-color: white;}
 
 
@@ -180,3 +211,20 @@
 .disk__upload-label {
     cursor: pointer;
 }
+
+.disk__upload{
+    display: flex;
+    flex-flow: row;
+}
+
+.disk__upload__btn{
+    min-width: 20%;
+}
+
+.disk__upload__stat{
+    align-self: center;
+    display: flex;
+    min-width: calc(100% - 20%);
+    justify-content: center;
+}
+

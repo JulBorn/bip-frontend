@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {setFiles} from "../reducers/fileReducer";
+import {beginLoad, endLoad, inLoad, closeLoad} from "../reducers/loadReducer";
 
 export function getFiles() {
     return async dispatch => {
@@ -57,10 +58,59 @@ export function uploadFile(file, dirId) {
                     }
                 }
             });
-            alert(response.status)
+            //alert(response.data.status)
+            let id=response.data.queueId
+            dispatch(beginLoad(id))
+            while (1){
+                setTimeout(() => {
+                    const response = axios.get('https://api-glitchspeech.herokuapp.com/audio_queue/' + id, {
+                        headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
+                        maxRedirects: 0
+                    })
+                }, 2000);
+                if (response.status===200){
+                    //alert("ok 200");
+                    dispatch(inLoad())
+                }
+                if (response.status===303||response.requestURL!='https://api-glitchspeech.herokuapp.com/audio_queue/'+id){
+                    //alert("ok 303");
+                    dispatch(endLoad());
+                    break;
+                }
+                //alert(response.data.status)
+            }
+            setTimeout(() => {
+                //alert("clos")
+                dispatch(closeLoad())
+            }, 5000);
             //dispatch(addFile(response.data))
         } catch (e) {
-            alert("Ошибка загрузки")
+            alert("Ошибка загрузки1")
+        }
+    }
+}
+
+export function checkFile(id) {
+    return async dispatch => {
+        try {
+            //alert('https://api-glitchspeech.herokuapp.com/audio_queue/'+id)
+            const response = await axios.get('https://api-glitchspeech.herokuapp.com/audio_queue/'+id, {
+                headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
+                maxRedirects: 0
+            })
+            if (response.status===200){
+                //alert("ok 200");
+                dispatch(inLoad())
+            }
+            if (response.status===303||response.requestURL!='https://api-glitchspeech.herokuapp.com/audio_queue/'+id){
+                alert("ok 303");
+                dispatch(endLoad())
+            }
+            alert(response.data.status)
+        } catch (e) {
+            alert("Ошибка загрузки22")
+            alert(e.status)
+            dispatch(closeLoad())
         }
     }
 }
