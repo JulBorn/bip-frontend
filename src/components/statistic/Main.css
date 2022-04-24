@@ -1,7 +1,10 @@
+@import "../../assets/font/fonts.css";
+
 .main{
     min-height: 95%;
     min-width: calc(100% - 60px);
     background: linear-gradient(to bottom, #ffffff, #f9f8fe) fixed;
+    font-family: "Roboto",sans-serif;
 }
 
 .main__content{

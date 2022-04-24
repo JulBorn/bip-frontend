@@ -16,10 +16,10 @@ const Column =({file})=> {
                 }}
                      onClick={()=>dispatch(updFiles(file.date,
                          file.swearsNum,file.parasitesNum,
-                         file.speechSpeed, file.fullText))}>{file.wordsNum}</button>
+                         file.speechSpeed, file.fullText, file.parasitesWords))}>{file.wordsNum}</button>
             </div>
             <div className="file__info">
-                <div className="file__date">{file.date.slice(0,10)}</div>
+                <div className="file__date">{file.time.split(":",2)[0]}:{file.time.split(":",2)[1]}</div>
             </div>
 
 

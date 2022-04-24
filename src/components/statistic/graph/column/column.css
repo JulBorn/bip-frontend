@@ -1,7 +1,10 @@
- .file{
+@import "../../../../assets/font/fonts.css";
+
+.file{
      height: 100%;
      min-height: 100%;
      width: 17%;
+    font-family: "Roboto", sans-serif;
  }
 
 .file__graph{

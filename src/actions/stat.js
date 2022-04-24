@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import getBrowserFingerprint from "get-browser-fingerprint";
 import {beginLoad, endLoad, inLoad, closeLoad} from "../reducers/loadReducer";
 
+
 export function exp_token(){
     let token = localStorage.getItem('token');
     let decodedToken = jwt_decode(token);
@@ -24,7 +25,20 @@ export function exp_token(){
 export function getFiles() {
     return async dispatch => {
         try {
-            exp_token();
+            let token = localStorage.getItem('token');
+            let decodedToken = jwt_decode(token);
+            console.log("Decoded Token", decodedToken);
+            let currentDate = new Date();
+
+            // JWT exp is in seconds
+            if (decodedToken.exp * 1000 < currentDate.getTime()) {
+                console.log("Token expired.");
+                const fingerprint = getBrowserFingerprint();
+                const refresh = await axios.post('https://api-glitchspeech.herokuapp.com/users/refresh', {
+                    "fingerprint":fingerprint},{ withCredentials: true
+                })
+                localStorage.setItem('token', refresh.data.jwtToken);
+            }
             const response = await axios.get('https://api-glitchspeech.herokuapp.com/users/self/audios?date=latest', {
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
             })
@@ -45,7 +59,20 @@ export function getFiles() {
 export function getNewFiles(date) {
     return async dispatch => {
         try {
-            exp_token();
+            let token = localStorage.getItem('token');
+            let decodedToken = jwt_decode(token);
+            console.log("Decoded Token", decodedToken);
+            let currentDate = new Date();
+
+            // JWT exp is in seconds
+            if (decodedToken.exp * 1000 < currentDate.getTime()) {
+                console.log("Token expired.");
+                const fingerprint = getBrowserFingerprint();
+                const refresh = await axios.post('https://api-glitchspeech.herokuapp.com/users/refresh', {
+                    "fingerprint":fingerprint},{ withCredentials: true
+                })
+                localStorage.setItem('token', refresh.data.jwtToken);
+            }
             const response = await axios.get('https://api-glitchspeech.herokuapp.com/users/self/audios?date='+date, {
                 headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
             })
@@ -63,7 +90,20 @@ export function getNewFiles(date) {
 export function uploadFile(file, dirId) {
     return async dispatch => {
         try {
-            exp_token();
+            let token = localStorage.getItem('token');
+            let decodedToken = jwt_decode(token);
+            console.log("Decoded Token", decodedToken);
+            let currentDate = new Date();
+
+            // JWT exp is in seconds
+            if (decodedToken.exp * 1000 < currentDate.getTime()) {
+                console.log("Token expired.");
+                const fingerprint = getBrowserFingerprint();
+                const refresh = await axios.post('https://api-glitchspeech.herokuapp.com/users/refresh', {
+                    "fingerprint":fingerprint},{ withCredentials: true
+                })
+                localStorage.setItem('token', refresh.data.jwtToken);
+            }
             const formData = new FormData()
             formData.append('file', file)
             if (dirId) {
@@ -94,7 +134,7 @@ export function uploadFile(file, dirId) {
                     //alert("ok 200");
                     dispatch(inLoad())
                 }
-                if (response.status===303||response.requestURL!='https://api-glitchspeech.herokuapp.com/audio_queue/'+id){
+                if (response.status===303||response.requestURL!=='https://api-glitchspeech.herokuapp.com/audio_queue/'+id){
                     //alert("ok 303");
                     dispatch(endLoad());
                     break;
@@ -125,7 +165,7 @@ export function checkFile(id) {
                 //alert("ok 200");
                 dispatch(inLoad())
             }
-            if (response.status===303||response.requestURL!='https://api-glitchspeech.herokuapp.com/audio_queue/'+id){
+            if (response.status===303||response.requestURL!=='https://api-glitchspeech.herokuapp.com/audio_queue/'+id){
                 alert("ok 303");
                 dispatch(endLoad())
             }

@@ -11,7 +11,8 @@ const defaultState = {
     parasit: [],
     swear: [],
     speed: [],
-    text: []
+    text: [],
+    profw: []
 }
 
 export default function fileReducer(state = defaultState, action) {
@@ -27,7 +28,8 @@ export default function fileReducer(state = defaultState, action) {
                 info: action.info,
                 parasit: action.parasit,
                 swear: action.swear,
-                speed: action.speed
+                speed: action.speed,
+                profw:[]
             }
         case UPD_FILES:
             return {
@@ -37,7 +39,8 @@ export default function fileReducer(state = defaultState, action) {
                 parasit: action.parasit,
                 swear: action.swear,
                 speed: action.speed,
-                text: action.text
+                text: action.text,
+                profw: action.profw
             }
         default:
             return state
@@ -56,11 +59,12 @@ export const setFiles = (files, odat, dat, ndat, inf, swe, par, spe, tex) => ({
     speed: spe,
     text: tex
 })
-export const updFiles = (dat, swe, par, spe, tex) => ({
+export const updFiles = (dat, swe, par, spe, tex, pw) => ({
     type: UPD_FILES,
     date: dat,
     swear:swe,
     parasit:par,
     speed: spe,
-    text: tex
+    text: tex,
+    profw:pw
 })
