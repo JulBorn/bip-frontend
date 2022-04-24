@@ -22,7 +22,7 @@ const Atrebut =()=>{
                 (<div className="atr__is">
                     <div className="atr__is__text">{alltext}</div>
                     <div className="atr__text">Какими словами вы злоупотребляете</div>
-                    <div>
+                    <div className="atr__wordL">
                         {files}
                     </div>
                 </div>)

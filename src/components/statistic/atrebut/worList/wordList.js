@@ -1,12 +1,16 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import "./wordList.css"
 
 const WordList = ({file}) => {
-    const maxHeight = useSelector(state => state.files.info)
-    const dispatch = useDispatch()
     return (
         <div className="wordL__content">
-            {file.word}{file.count}
+            <div className="wordL__text">
+                {file.word}
+            </div>
+            <div className="wordL__count">
+                +{file.count}
+            </div>
         </div>
     );
 };

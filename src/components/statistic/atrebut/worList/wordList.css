@@ -1,0 +1,20 @@
+@import "../../../../assets/font/fonts.css";
+
+.wordL__content{
+    display: flex;
+    flex-flow: row;
+    background-color: white;
+    padding: 0px 10px;
+    border-radius: 25px;
+}
+
+.wordL__text{
+    font-family: "AvertaBold1", sans-serif;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.wordL__count{
+    color: #6A78F9;
+    font-size: 15px;
+}

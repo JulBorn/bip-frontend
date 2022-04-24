@@ -43,6 +43,9 @@
     justify-content: right;
     align-items: center;
     border-bottom: 1px #B3B3B3 solid;
+    font-family: "AvertaBold1", sans-serif;
+    font-size: 1.3rem;
+    color: black;
 }
 
 .main__person{
@@ -96,6 +99,7 @@
     display: flex;
     flex-flow: row;
     min-height: 100vh;
+    font-family: "Averta1";
 }
 
 .dropbtn, .dropbtn__b {
