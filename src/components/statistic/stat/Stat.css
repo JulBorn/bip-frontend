@@ -44,6 +44,7 @@
     font-style: italic;
     font-family: "AvertaBold1", sans-serif;
     line-height: 20px;
+    max-height: 20%;
 }
 
 .card p {
@@ -53,7 +54,16 @@
     border: #6A78F9;
 }
 .numCard{
-    font-size: 2.2rem;
+    font-size: 2.0rem;
     color: #000000;
+    font-style: italic;
     font-weight: bold;
+    font-family: "AvertaBold1", sans-serif;
+}
+
+.vol__content{
+    max-height: calc(100% - 20% - 10px);
+    min-height: calc(100% - 20% - 10px);
+    display: flex;
+    align-items: center;
 }

@@ -7,6 +7,8 @@ const Stat =()=> {
     const parasitW = useSelector(state => state.files.parasit)
     const speedW = useSelector(state => state.files.speed)
     const swearW = useSelector(state => state.files.swear)
+    const isVolumeSet = useSelector(state => state.files.volumeset)
+    const volume = useSelector(state => state.files.volume)
     return (
         <div className="grid">
             <a  className="card">
@@ -48,12 +50,28 @@ const Stat =()=> {
                 className="card"
             >
                 <h3>Громкость</h3>
-                <p>
-                    <ul>
-                        <li>Присуствует повышение голоса в диалогах </li>
-                        <li>Комфортно для общения </li>
-                    </ul>
-                </p>
+                {isVolumeSet ?
+                    <div className="vol__content">
+                        {volume<-25 && <ul>
+                            <li>Слишком тихо</li>
+                        </ul>}
+                        {(volume>=-25 && volume<-10) && <ul>
+                            <li>Комфортно для общения</li>
+                        </ul>}
+                        {volume>=-10 && <ul>
+                            <li>Присуствует повышение голоса в диалогах</li>
+                        </ul>}
+                    </div>
+
+                :
+                    <p>
+                        <ul>
+                            <li>Присуствует повышение голоса в диалогах </li>
+                            <li>Комфортно для общения </li>
+                        </ul>
+                    </p>
+                }
+
             </a>
         </div>
 
