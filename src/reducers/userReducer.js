@@ -31,7 +31,8 @@ export default function userReducer(state = defaultState, action) {
             return {
                 ...state,
                 currentUser: {},
-                isAuth: false
+                isAuth: false,
+                isCreate: false
             }
         default:
             return state

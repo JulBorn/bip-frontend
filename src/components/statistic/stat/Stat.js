@@ -9,7 +9,7 @@ const Stat =()=> {
     const swearW = useSelector(state => state.files.swear)
     return (
         <div className="grid">
-            <a href="https://nextjs.org/docs" className="card">
+            <a  className="card">
                 <h3>Скорость речи</h3>
                 <p><span className="numCard"><em>{speedW}</em></span> слов/минуту
                     <ul>
@@ -19,7 +19,7 @@ const Stat =()=> {
                 </p>
             </a>
 
-            <a href="https://nextjs.org/learn" className="card">
+            <a  className="card">
                 <h3>Слова паразиты</h3>
                 <p><span className="numCard"><em>{parasitW}</em></span> слов</p>
                 <p>Укого столько же:
@@ -32,7 +32,7 @@ const Stat =()=> {
             </a>
 
             <a
-                href="https://github.com/vercel/next.js/tree/master/examples"
+
                 className="card"
             >
                 <h3>Ненормативная лексика</h3>
@@ -45,7 +45,6 @@ const Stat =()=> {
             </a>
 
             <a
-                href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
                 className="card"
             >
                 <h3>Громкость</h3>
