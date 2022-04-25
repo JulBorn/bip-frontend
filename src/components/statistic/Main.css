@@ -32,17 +32,17 @@
     max-width: 1px;
     min-height: calc(100% - 20px);
     margin: 10px 0;
-    background-color: #B2B2B2;
+    background-color: #E1E1FF;
 }
 
 .main__toolbar{
     width: 100%;
-    height: calc(50px - 1px);
+    height: calc(50px - 2px);
     display: flex;
     flex-flow: row;
     justify-content: right;
     align-items: center;
-    border-bottom: 1px #B3B3B3 solid;
+    border-bottom: 2px #F9F8FE solid;
     font-family: "AvertaBold1", sans-serif;
     font-size: 1.3rem;
     color: black;
@@ -79,13 +79,14 @@
     margin: 0 20px;
 }
 
-.main__upload{
+.main__upload {
     display: flex;
     flex-flow: column;
-    font-size: 20px;
+    font-size: 1.2rem;
     width: 70%;
     font-style: italic;
     color: black;
+    font-family: "AvertaBold1", sans-serif;
 }
 
 .main__upload p{
@@ -93,6 +94,7 @@
     margin: 0;
     font-style: normal;
     color: #B3B3B3;
+    font-family: "Roboto", sans-serif;
 }
 
 .main__screen{

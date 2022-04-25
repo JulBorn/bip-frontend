@@ -1,18 +1,22 @@
 @import "../../../../assets/font/fonts.css";
 
 .file{
-     height: 100%;
-     min-height: 100%;
-     width: 17%;
-    font-family: "Roboto", sans-serif;
+     height: calc(100% - 8px);
+     min-height: calc(100% - 8px);
+     min-width: 16.65%;
+     font-family: "Roboto", sans-serif;
  }
 
 .file__graph{
-    height: 95%;
-    min-height: 95%;
-    width: 100%;
-    min-width: 100%;
+    height: calc(92% - 5px);
+    min-height: calc(92% - 5px);
+    width: calc(100% - 5px);
+    min-width: calc(100% - 5px);
     display: flex;
+    margin: 2.5px;
+    border: 0;
+    background-color: inherit;
+    padding: 0;
 }
 
  .file__date{
@@ -21,12 +25,27 @@
  }
 
  .file__col{
+     text-align: center;
      border: 0;
+     background-color: #D2D2FD;
+     border-radius: 20px 20px 0px 0px;
+     font-size: 1.0rem;
  }
 
- .file__col:hover,
- .file__col:focus {
-     border: 1px #6A78F9 solid;
+.file__graph:hover,
+.file__graph:focus{
+    height: calc(98% - 5px - 3%);
+    min-height: calc(98% - 5px - 3%);
+    background-color: white;
+    padding-top: 3%;
+    box-shadow: 0 0 5px #B2B2B2;
+    border-radius: 0 0 20px 20px;
+}
+
+.file__graph:hover .file__col,
+.file__graph:focus .file__col {
+     background-color: #6A78F9;
+     border-radius: 20px 0 20px 20px;
  }
 
  .file__col:active{
