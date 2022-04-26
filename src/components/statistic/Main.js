@@ -34,6 +34,7 @@ const Main = () => {
     function fileUploadHandler(event) {
         const files = [...event.target.files]
         files.forEach(file => dispatch(uploadFile(file)))
+
     }
 
     const nameP = useSelector(state => state.user.currentUser)
