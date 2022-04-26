@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "Averta1";
+    font-weight: 400;
+    font-style: italic;
+    src:
+    url("./AvertaDemoPECuttedDemo-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "AvertaBold1";
+    font-style: normal;
+    font-weight: 400;
+    src:
+    url("./AvertaDemoPE-ExtraboldItalic.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Rounded";
+    font-style: normal;
+    font-weight: 400;
+    src:
+    url("./SFCompactRounded-Ultralight.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Display";
+    font-style: normal;
+    font-weight: 400;
+    src:
+    url("./SFCompactDisplay-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "G1";
+    font-style: normal;
+    font-weight: 400;
+    src:
+    url("./SFCompactText-RegularG1.woff") format("woff");
+}

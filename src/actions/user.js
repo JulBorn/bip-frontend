@@ -3,6 +3,7 @@ import {setUser,createUser} from "../reducers/userReducer";
 import getBrowserFingerprint from "get-browser-fingerprint";
 
 let timer = null;
+const domen='https://api-glitchspeech.herokuapp.com'
 
 function showError(message) {
     if (timer !== null) {
@@ -18,12 +19,12 @@ function showError(message) {
 
 export const registration = (login, password,email) => {
     return async dispatch => {try {
-        const response = await axios.post('https://api-glitchspeech.herokuapp.com/users/register', {
+        const response = await axios.post(domen+'/users/register', {
             "login":login,"password":password,"mail":email
         })
         if(response.status===201) {
             dispatch(createUser());
-            const token = await axios.post('https://api-glitchspeech.herokuapp.com/users/2fa', {
+            const token = await axios.post(domen+'/users/2fa', {
                 "login":login,"password":password
             })
         } else {
@@ -52,41 +53,21 @@ export const login =  (log, password) => {
     }
 }
 
-export const auth =  () => {
-    return async dispatch => {
-        try {
-            if (localStorage.getItem('token')!=null){
-
-            }
-            const response = await axios.get(`http://localhost:5000/api/auth/auth`,
-                {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}}
-            )
-            if(response.status===201) {
-                dispatch(setUser(response.data.username))
-                localStorage.setItem('token', response.data.token)
-            }
-        } catch (e) {
-            alert(e.response.data.message)
-            localStorage.removeItem('token')
-        }
-    }
-}
-
 export const fa =  (login,password,token) => {
     return async dispatch => {
         try {
             const fingerprint = getBrowserFingerprint();
-            const response = await axios.post('https://api-glitchspeech.herokuapp.com/users/login', {
+            const response = await axios.post(domen+'/users/login', {
                 "login":login,"password":password,"two_fa_token":token, "fingerprint":fingerprint},
-                {withCredentials: true
-            })
+                {withCredentials: true}
+            )
             dispatch(setUser(login))
             //alert("username")
             //alert(login)
             localStorage.setItem('token', response.data.jwtToken)
             localStorage.setItem('user', login)
             //alert('ok')
-            const self = await axios.get('https://api-glitchspeech.herokuapp.com/users/self',
+            const self = await axios.get(domen+'/users/self',
                 {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`},responseType: 'text'}
             )
         } catch (e) {

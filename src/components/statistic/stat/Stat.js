@@ -7,9 +7,11 @@ const Stat =()=> {
     const parasitW = useSelector(state => state.files.parasit)
     const speedW = useSelector(state => state.files.speed)
     const swearW = useSelector(state => state.files.swear)
+    const isVolumeSet = useSelector(state => state.files.volumeset)
+    const volume = useSelector(state => state.files.volume)
     return (
         <div className="grid">
-            <a href="https://nextjs.org/docs" className="card">
+            <a  className="card">
                 <h3>Скорость речи</h3>
                 <p><span className="numCard"><em>{speedW}</em></span> слов/минуту
                     <ul>
@@ -19,7 +21,7 @@ const Stat =()=> {
                 </p>
             </a>
 
-            <a href="https://nextjs.org/learn" className="card">
+            <a  className="card">
                 <h3>Слова паразиты</h3>
                 <p><span className="numCard"><em>{parasitW}</em></span> слов</p>
                 <p>Укого столько же:
@@ -32,7 +34,7 @@ const Stat =()=> {
             </a>
 
             <a
-                href="https://github.com/vercel/next.js/tree/master/examples"
+
                 className="card"
             >
                 <h3>Ненормативная лексика</h3>
@@ -45,16 +47,31 @@ const Stat =()=> {
             </a>
 
             <a
-                href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
                 className="card"
             >
                 <h3>Громкость</h3>
-                <p>
-                    <ul>
-                        <li>Присуствует повышение голоса в диалогах </li>
-                        <li>Комфортно для общения </li>
-                    </ul>
-                </p>
+                {isVolumeSet ?
+                    <div className="vol__content">
+                        {volume<-25 && <ul>
+                            <li>Слишком тихо</li>
+                        </ul>}
+                        {(volume>=-25 && volume<-10) && <ul>
+                            <li>Комфортно для общения</li>
+                        </ul>}
+                        {volume>=-10 && <ul>
+                            <li>Присуствует повышение голоса в диалогах</li>
+                        </ul>}
+                    </div>
+
+                :
+                    <p>
+                        <ul>
+                            <li>Присуствует повышение голоса в диалогах </li>
+                            <li>Комфортно для общения </li>
+                        </ul>
+                    </p>
+                }
+
             </a>
         </div>
 

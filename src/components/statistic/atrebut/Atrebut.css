@@ -10,6 +10,7 @@
     border: 0px;
     margin-left: 0;
     margin-right: 30px;
+    font-size: 1.0rem;
 }
 
 .atr__text, .atr__is__text{
@@ -20,7 +21,12 @@
 
 .atr__name{
     font-size: 25px;
-    margin-top: 10px;
+    margin-top: 5px;
+}
+
+.atr__wordL{
+    display: flex;
+    flex-flow: row;
 }
 
 

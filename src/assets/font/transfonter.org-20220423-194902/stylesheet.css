@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Averta Demo PE';
+    src: url('AvertaDemoPE-ExtraboldItalic.woff2') format('woff2'),
+        url('AvertaDemoPE-ExtraboldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Compact Display';
+    src: url('SFCompactDisplay-Regular.woff2') format('woff2'),
+        url('SFCompactDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Compact Rounded';
+    src: url('SFCompactRounded-Ultralight.woff2') format('woff2'),
+        url('SFCompactRounded-Ultralight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
