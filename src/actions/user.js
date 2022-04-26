@@ -40,7 +40,7 @@ export const registration = (login, password,email) => {
 export const login =  (log, password) => {
     return async dispatch => {
         try {
-            const response = await axios.post('https://api-glitchspeech.herokuapp.com/users/2fa', {
+            const response = await axios.post(domen+'/users/2fa', {
                 "login":log,"password":password
             })
             if(response.status===201) {

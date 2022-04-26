@@ -144,9 +144,25 @@ export function uploadFile(file, dirId) {
             }
             setTimeout(() => {
                 //alert("clos")
-                dispatch(closeLoad())
+                const respons = axios.get(domen+'/users/self/audios?date=latest', {
+                    headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
+                })
+
+                dispatch(setFiles(respons.data.infos, respons.data.prevDate, respons.data.infos[0].date,
+                    respons.data.nextDate,
+                    respons.data.maxWords, respons.data.numAllSwears,
+                    respons.data.numAllParasites, respons.data.avgSpeechSpeed));
+
+            }, 2000);
+            setTimeout(() => {
+                //alert("clos")
+                dispatch(closeLoad());
+
             }, 5000);
+            //dispatch(getFiles())
             //dispatch(addFile(response.data))
+
+
         } catch (e) {
             alert("Ошибка загрузки1")
         }

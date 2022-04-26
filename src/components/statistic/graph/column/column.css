@@ -34,12 +34,12 @@
 
 .file__graph:hover,
 .file__graph:focus{
-    height: calc(98% - 5px - 3%);
-    min-height: calc(98% - 5px - 3%);
+    height: calc(98% - 5px - 5px);
+    min-height: calc(98% - 5px - 5px);
     background-color: white;
-    padding-top: 3%;
+    padding-top: 20px;
     box-shadow: 0 0 5px #B2B2B2;
-    border-radius: 0 0 20px 20px;
+    border-radius: 20px;
 }
 
 .file__graph:hover .file__col,

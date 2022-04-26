@@ -54,7 +54,6 @@ const Load = () => {
                     <div className="load__end">Загружено</div>
                 </div>)
             }
-            {mid} {id}
         </div>
     );
 }
