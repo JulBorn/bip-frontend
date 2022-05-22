@@ -3,3 +3,6 @@
     [headers.values]
         X-Frame-Options = "DENY"
         Content-Security-Policy = "default-src 'self'"
+        Cache-Control = "no-cache='Set-Cookie, Set-Cookie2'"
+        X-XSS-Protection = "0"
+        X-Content-Type-Options = "nosniff"
