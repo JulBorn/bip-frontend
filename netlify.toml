@@ -2,7 +2,7 @@
     for = "/*"
     [headers.values]
         X-Frame-Options = "DENY"
-        Content-Security-Policy = "default-src 'self' api-glitchspeech.herokuapp.com/; frame-src 'self'; frame-ancestors 'self' api-glitchspeech.herokuapp.com/; form-action 'self' api-glitchspeech.herokuapp.com/;"
+        Content-Security-Policy = "default-src 'self' api-glitchspeech.herokuapp.com/; form-action 'self' api-glitchspeech.herokuapp.com/;"
         Cache-Control = "Cache-Control: no-cache, no-store, must-revalidate"
         X-XSS-Protection = "0"
         X-Content-Type-Options = "nosniff"
